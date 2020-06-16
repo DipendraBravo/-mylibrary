@@ -7,7 +7,9 @@ const app = express()
 const expresslayouts = require('express-ejs-layouts')
 const mongoose = require('mongoose')
 const indexRouter = require('./routes/index')
-const authorRouter = require('./routes/author')
+const authorRouter = require('./routes/authors')
+const bookRouter = require('./routes/books')
+
 const bodyparser = require('body-parser');
 
 
@@ -27,5 +29,5 @@ app.use(express.static('public'))
 
 app.use('/', indexRouter)
 app.use('/authors', authorRouter)
-
+app.use('/books', bookRouter)
 app.listen(process.env.PORT || 3000)
