@@ -21,6 +21,7 @@ db.once('open', () => console.log("connected to Mongoose"))
 
 
 app.use(bodyparser.urlencoded({ limit: "10mb", extended: false }))
+
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
 app.set('layout', 'layouts/layout')
