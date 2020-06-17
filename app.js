@@ -6,6 +6,7 @@ const express = require('express')
 const app = express()
 const expresslayouts = require('express-ejs-layouts')
 const mongoose = require('mongoose')
+const methodoverride = require('method-override');
 const indexRouter = require('./routes/index')
 const authorRouter = require('./routes/authors')
 const bookRouter = require('./routes/books')
@@ -19,7 +20,7 @@ const db = mongoose.connection
 db.on('error', error => console.error(error))
 db.once('open', () => console.log("connected to Mongoose"))
 
-
+app.use(methodoverride('_method'))
 app.use(bodyparser.urlencoded({ limit: "10mb", extended: false }))
 
 app.set('view engine', 'ejs')
